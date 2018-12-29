@@ -47,17 +47,17 @@ begin
   read(x);
   read(y);
   call multiply;
-  write(x, y, z);
+  write(z);
 
   read(x);
   read(y);
   call divide;
-  write(x, y, q);
+  write(q);
 
   read(x);
   read(y);
   call gcd;
-  write(x, y, z);
+  write(z);
 end.
 {
 procedure test;

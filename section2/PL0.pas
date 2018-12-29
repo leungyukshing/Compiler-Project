@@ -723,8 +723,8 @@ end {base};
           sto : 
               begin
                 s[base(l) + a] := s[t];
-                writeln(s[t]);
-                writeln(fout, s[t]);
+                {writeln(s[t]);
+                writeln(fout, s[t]);}
                 t := t - 1
               end;
           cal : 
@@ -753,9 +753,9 @@ end {base};
               end;
           wrt:
               begin
-                {writeln('Here is the integer: ');}
+                write('Here is the result: ');
                 writeln(s[t]);
-                {writeln(fout, 'Here is the integer: ');}
+                write(fout, 'Here is the result: ');
                 writeln(fout, s[t]);
                 t := t + 1;
               end
