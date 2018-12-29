@@ -60,7 +60,7 @@ var
 procedure error (n : integer);
 begin 
   writeln('****', ' ' : cc - 1, '!', n : 2);
-  writeln(fout, '****', ' ' : cc - 1, '!', n:2);
+  writeln(fout, '****', ' ' : cc - 1, '!', n : 2);
   err := err + 1
 end {error};
 procedure getsym;
@@ -631,7 +631,7 @@ begin {block}
       adr := cx; {代码开始地址}
     end;
   cx0 := cx; gen(int, 0, dx);
-  statement([semicolon, endsym]+fsys);
+  statement([semicolon, endsym] + fsys);
   gen(opr, 0, 0); {生成返回指令}
   test(fsys, [ ], 8);
   listcode;
@@ -658,7 +658,7 @@ end {base};
     t := 0;  b := 1;  p := 0;
     s[1] := 0;  s[2] := 0;  s[3] := 0;
     repeat
-      i := code[p];  p := p+1;
+      i := code[p];  p := p + 1;
       with i do
         case f of
           lit : 
@@ -669,50 +669,50 @@ end {base};
           opr : case a of {运算}
                   0 : begin {返回}
                         t := b - 1;
-                        p := s[t+3];
-                        b := s[t+2];
+                        p := s[t + 3];
+                        b := s[t + 2];
                       end;
                   1 : s[t] := -s[t];
                   2 : begin
                         t := t - 1;
-                        s[t] := s[t] + s[t+1]
+                        s[t] := s[t] + s[t + 1]
                       end;
                   3 : begin
                         t := t - 1;
-                        s[t] := s[t] - s[t+1]
+                        s[t] := s[t] - s[t + 1]
                       end;
                   4 : begin
                         t := t - 1;
-                        s[t] := s[t] * s[t+1]
+                        s[t] := s[t] * s[t + 1]
                       end;
                   5 : begin
                         t := t - 1;
-                        s[t] := s[t] div s[t+1]
+                        s[t] := s[t] div s[t + 1]
                       end;
                   6 : s[t] := ord(odd(s[t]));
                   8 : begin
                         t := t - 1;
-                        s[t] := ord(s[t] = s[t+1])
+                        s[t] := ord(s[t] = s[t + 1])
                       end;
                   9:  begin
                         t := t - 1;
-                        s[t] := ord(s[t] <> s[t+1])
+                        s[t] := ord(s[t] <> s[t + 1])
                       end;
                   10: begin
                         t := t - 1;
-                        s[t] := ord(s[t] < s[t+1])
+                        s[t] := ord(s[t] < s[t + 1])
                       end;
                   11: begin
                         t := t - 1;
-                        s[t] := ord(s[t] >= s[t+1])
+                        s[t] := ord(s[t] >= s[t + 1])
                       end;
                   12: begin
                         t := t - 1;
-                        s[t] := ord(s[t] > s[t+1])
+                        s[t] := ord(s[t] > s[t + 1])
                       end;
                   13: begin
                         t := t - 1;
-                        s[t] := ord(s[t] <= s[t+1])
+                        s[t] := ord(s[t] <= s[t + 1])
                       end;
                 end;
           lod : 
@@ -729,7 +729,7 @@ end {base};
               end;
           cal : 
               begin {generate new block mark}
-                s[t+1] := base( l );
+                s[t+1] := base(l);
                 s[t+2] := b;
                 s[t+3] := p;
                 b := t+1;
@@ -747,7 +747,7 @@ end {base};
               begin
                 {writeln('Input an integer: ');
                 writeln(fout, 'Input an integer: ');}
-                write('??:');
+                write('$ :');
                 readln(s[base(l) + a]);
                 {writeln(fout, s[base(l) + a]);}
               end;
@@ -764,14 +764,18 @@ end {base};
     writeln('END PL/0');
     writeln(fout, 'END PL/0');
 end {interpret};
+
 begin  {主程序}
   writeln('please input source program file name : ');
   readln(sfile);
+
   assign(fin,sfile);
   reset(fin);
+
   writeln('please input the file name to save result : ');
   readln(dfile);
   assign(fout,dfile);
+
   rewrite(fout);
   for ch := 'A' to ';' do  ssym[ch] := nul;
   word[1] := 'begin     '; word[2] := 'call      ';
