@@ -1,0 +1,11 @@
+START PL/0
+$ :4
+$ :5
+Here is the result: 20
+$ :80
+$ :4
+Here is the result: 20
+$ :15
+$ :27
+Here is the result: 3
+END PL/0

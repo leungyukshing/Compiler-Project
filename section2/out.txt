@@ -176,7 +176,13 @@
  118  WRT    0    0
  119  OPR    0    0
 START PL/0
-Here is the result: 595
-Here is the result: 8
-Here is the result: 12
+$ :4
+$ :5
+Here is the result: 20
+$ :80
+$ :4
+Here is the result: 20
+$ :15
+$ :27
+Here is the result: 3
 END PL/0

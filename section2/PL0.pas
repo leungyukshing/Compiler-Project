@@ -748,7 +748,9 @@ end {base};
                 {writeln('Input an integer: ');
                 writeln(fout, 'Input an integer: ');}
                 write('$ :');
+                write(fout, '$ :');
                 readln(s[base(l) + a]);
+                writeln(fout, s[base(l) + a]);
                 {writeln(fout, s[base(l) + a]);}
               end;
           wrt:
